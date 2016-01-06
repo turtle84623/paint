@@ -101,6 +101,17 @@
                         <input type="submit" name="b2" id="b2" value="確定申請">
                         <input type="reset" name="r2" id="r2" value="重新輸入">
                       </p>
+                       <?php
+        include_once 'db.php';       
+        $name = $_POST['admin2'];
+        $key2 = $_POST['key2'];
+        $numb= $_POST['numb'];
+        $sql = "INSERT INTO `panit`.`locks` "
+                . "(`使用者`, `密碼`, `電話號碼`)"
+                . " VALUES ( '$name',"." $key2,"." $numb);";
+        echo "\n".$sql . "\n";
+        $result = mysql_query($sql);
+        ?>
                     </form>
                 </div>
                
