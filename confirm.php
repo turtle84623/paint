@@ -17,7 +17,7 @@ and open the template in the editor.
         $numb= $_POST['numb'];
         $sql = "INSERT INTO `panit`.`locks` "
                 . "(`使用者`, `密碼`, `電話號碼`)"
-                . " VALUES ( '$name',"." '$key2,"." '$numb');";
+                . " VALUES ( '$name',"." $key2,"." $numb);";
         echo "\n".$sql . "\n";
         $result = mysql_query($sql);
         ?>

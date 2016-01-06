@@ -97,7 +97,9 @@ include_once 'db.php';
                     <input type="submit" name="b1" id="b1" value="帳號登入">
                     <a href="admin.php"><input type="button" name="r" id="r" value="新增帳號"></a>
                   </p>
+                 
                 </form>
+                
                 <div>
             </div>
             
@@ -124,3 +126,24 @@ include_once 'db.php';
 </body>
 
 </html>
+ <?php
+ include_once 'db.php';    
+ $key = $_POST['key'];
+ $sql = "SELECT * FROM locks WHERE 使用者='".$_POST["admin"]."'";
+ $record=mysql_query($sql);
+ $row = mysql_fetch_assoc($record);       
+ $password = $row["密碼"];
+      
+ if($password==$key){
+      echo 登入成功;
+ }
+ else {?>
+     <SCRIPT language=javascript>
+	<!--
+		alert ("您輸入的帳號或密碼錯誤，請重新輸入！"); 
+		history.go(-1);
+	//-->
+	</SCRIPT>
+<?php }?>
+ 
+?>
