@@ -109,8 +109,9 @@
         $sql = "INSERT INTO `panit`.`locks` "
                 . "(`使用者`, `密碼`, `電話號碼`)"
                 . " VALUES ( '$name',"." $key2,"." $numb);";
-        echo "\n".$sql . "\n";
+       // echo "\n".$sql . "\n";
         $result = mysql_query($sql);
+        
         ?>
                     </form>
                 </div>
@@ -142,5 +143,7 @@
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
+<SCRIPT language=javascript>
+    alert  ("帳號創建成功！"); 
+</SCRIPT>
 </html>
