@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -61,7 +61,7 @@ include_once 'db.php';
                         <a href="about.php">商品</a>
                     </li>
                     <li>
-                        <a href="blog.php">登入</a>
+                        <a href="blog.php">帳號</a>
                     </li>
                     <li>
                         <a href="contact.php">購物車</a>
@@ -72,6 +72,7 @@ include_once 'db.php';
         </div>
         <!-- /.container -->
     </nav>
+    <?php if ($_SESSION['one']==true){ ?>
 
     <div class="container">
 
@@ -80,7 +81,7 @@ include_once 'db.php';
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>登入</strong>
+                        <strong>帳號</strong>
                     </h2>
                    
                 </div>
@@ -104,7 +105,7 @@ include_once 'db.php';
             </div>
             
         </div>
-    </div>
+    </div><?php }?>
     <!-- /.container -->
 
     <footer>

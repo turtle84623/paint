@@ -3,7 +3,7 @@
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
--->
+--><?php session_start(); ?>
 <html>
     <head>
         <meta charset="UTF-8">
@@ -19,10 +19,18 @@ if ($_POST["admin"]!=""&&$_POST['key']!=""){
  $row = mysql_fetch_assoc($record);       
  $password = $row["密碼"];
       
- if($password==$key){
-      echo 登入成功;
- }
- else {?>
+ if($password==$key){?>
+        <SCRIPT language=javascript>
+	      <?php  
+  $_SESSION['one']=false;
+  ?>
+		alert ("登入成功！"); 
+		history.go(-1);
+                
+	//-->
+	</SCRIPT> 
+ <?php }
+  else { ?>
  <SCRIPT language=javascript>
 	<!--
 		alert ("您輸入的帳號或密碼錯誤，請重新輸入！"); 

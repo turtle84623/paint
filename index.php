@@ -62,7 +62,7 @@ include_once 'db.php';
                         <a href="about.php">商品</a>
                     </li>
                     <li>
-                        <a href="blog.php">登入</a>
+                        <a href="blog.php">帳號</a>
                     </li>
                     <li>
                         <a href="contact.php">購物車</a>
