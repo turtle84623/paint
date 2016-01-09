@@ -84,7 +84,7 @@ include_once 'db.php';
                     </h2>
                    
                 </div>
-                <form name="form1" method="post" action="">
+                <form name="form1" method="post" action="login.php">
                   <p>帳號:
                     <label for="admin"></label>
                   <input type="text" name="admin" id="admin">
@@ -126,24 +126,3 @@ include_once 'db.php';
 </body>
 
 </html>
- <?php
- include_once 'db.php';    
- $key = $_POST['key'];
- $sql = "SELECT * FROM locks WHERE 使用者='".$_POST["admin"]."'";
- $record=mysql_query($sql);
- $row = mysql_fetch_assoc($record);       
- $password = $row["密碼"];
-      
- if($password==$key){
-      echo 登入成功;
- }
- else {?>
-     <SCRIPT language=javascript>
-	<!--
-		alert ("您輸入的帳號或密碼錯誤，請重新輸入！"); 
-		history.go(-1);
-	//-->
-	</SCRIPT>
-<?php }?>
- 
-?>
