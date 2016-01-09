@@ -130,14 +130,17 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
-</body>
 <SCRIPT language=javascript>
-    alert  ("帳號創建成功！"); 
+    if(admin2!=NULL&&numb!=NULL&&key2!=NULL&&add!=NULL){alert  ("帳號創建成功！");}
+    else{alert  ("帳號創建失敗！，請確認是否輸入正確!");}
+    
+     
 </SCRIPT>
+</body>
+
 </html>
-                       <?php
-        include_once 'db.php';       
+        <?php
+        include_once 'db.php';   
         $name = $_POST['admin2'];
         $key2 = $_POST['key2'];
         $numb= $_POST['numb'];
