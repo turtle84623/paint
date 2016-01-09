@@ -61,7 +61,7 @@ include_once 'db.php';
                         <a href="about.php">商品</a>
                     </li>
                     <li>
-                        <a href="blog.php">帳號</a>
+                        <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
                         <a href="contact.php">購物車</a>
@@ -72,8 +72,7 @@ include_once 'db.php';
         </div>
         <!-- /.container -->
     </nav>
-    <?php if ($_SESSION['one']==true){ ?>
-
+    <?php if ($_SESSION['one']!=true){ ?>
     <div class="container">
 
         <div class="row">
@@ -105,7 +104,31 @@ include_once 'db.php';
             </div>
             
         </div>
-    </div><?php }?>
+    </div><?php }
+ else {?>
+     <div class="container">
+
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>帳號管理</strong>
+                    </h2>
+                   
+                </div>
+                
+                  <p>帳號:<?php echo $_SESSION['two'] ?>
+                  </p>
+                  <a href="logout.php">登出<?php $_SESSION['three']=1; ?></a>
+                <div>
+            </div>
+            
+        </div>
+    </div>
+<?php }
+    ?>
+        
     <!-- /.container -->
 
     <footer>

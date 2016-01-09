@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html><?php session_start(); ?>
 <html lang="en">
 
 <head>
@@ -59,7 +59,7 @@
                         <a href="about.php">商品</a>
                     </li>
                     <li>
-                        <a href="blog.php">帳號</a>
+                        <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
                         <a href="contact.php">購物車</a>

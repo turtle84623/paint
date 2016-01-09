@@ -22,7 +22,8 @@ if ($_POST["admin"]!=""&&$_POST['key']!=""){
  if($password==$key){?>
         <SCRIPT language=javascript>
 	      <?php  
-  $_SESSION['one']=false;
+  $_SESSION['one']=true;
+  $_SESSION['two']=$_POST["admin"];
   ?>
 		alert ("登入成功！"); 
 		history.go(-1);
