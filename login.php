@@ -23,7 +23,12 @@ if ($_POST["admin"]!=""&&$_POST['key']!=""){
       echo 登入成功;
  }
  else {?>
- 
+ <SCRIPT language=javascript>
+	<!--
+		alert ("您輸入的帳號或密碼錯誤，請重新輸入！"); 
+		history.go(-1);
+	//-->
+	</SCRIPT> 
 <?php }}
  else {?>
         <SCRIPT language=javascript>
