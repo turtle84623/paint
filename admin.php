@@ -131,24 +131,31 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 <SCRIPT language=javascript>
-    if(admin2!=NULL&&numb!=NULL&&key2!=NULL&&add!=NULL){alert  ("帳號創建成功！");}
-    else{alert  ("帳號創建失敗！，請確認是否輸入正確!");}
-    
-     
+   alert  ("帳號創建失敗！，請確認是否輸入正確!"); 
+      
 </SCRIPT>
 </body>
-
-</html>
+ </html>
         <?php
         include_once 'db.php';   
         $name = $_POST['admin2'];
         $key2 = $_POST['key2'];
         $numb= $_POST['numb'];
         $add= $_POST['add'];
-        $sql = "INSERT INTO `panit`.`locks` "
+        if($name!=NULL&&$key2!=NULL&&$numb!=NULL&&$add!=NULL){
+                    $sql = "INSERT INTO `panit`.`locks` "
                 . "(`使用者`, `密碼`, `電話號碼`,`地址`)"
                 . " VALUES ( '$name',"." $key2,"." $numb,"."'$add');";
        // echo "\n".$sql . "\n";
         $result = mysql_query($sql);
         //echo "\n".$sql . "\n";
-        ?>
+            ?>
+        <SCRIPT language=javascript>
+        alert  ("帳號創建成功！");      
+        </SCRIPT>
+        <?php }
+        else{?>
+         <SCRIPT language=javascript>
+        alert  ("帳號創建失敗！，請確認是否輸入正確!");      
+        </SCRIPT>   
+            <?php }?>
