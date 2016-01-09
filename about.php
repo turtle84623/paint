@@ -105,27 +105,23 @@ include_once 'db.php';
                     </h2>
                     <hr>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/2.jpg" alt="">
-                    <h3>貓王油性一液型PU防水膠
-                            <span>$900</span>
-                            <a href="checkout.php" class="btn-cart"> 加到購物車</a>                            			                       
+               
+                <?php
+                
+                for($i=2;$i<=4;$i++){
+                    $sql = "SELECT * FROM 商品 WHERE 商品代號='".$i."'";
+                    $record=mysql_query($sql);
+                    $row = mysql_fetch_assoc($record);
+                    ?>
+                
+                     <div class="col-sm-4 text-center">
+                         <img class="img-responsive" src="img/<?php echo $i; ?>.jpg" alt="">
+                         <h3><?php echo $row["商品名稱"];?>                                                        			                       
                     </h3>
+                         <span>價格:<?php echo $row["單價"]; ?>NT</span>
+                            <a href="checkout.php" class="btn-cart"> 加到購物車</a>
                 </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/3.jpg" alt="">
-                    <h3>AI 耐燃三級透明防火塗料
-                        <span>$1980</span>
-                        <a href="checkout.php" class="btn-cart"> 加到購物車</a>
-                    </h3>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <img class="img-responsive" src="img/4.jpg" alt="">
-                    <h3>室內外防蟲防腐防霉-護木漆
-                        <span>$970</span>
-                        <a href="checkout.php" class="btn-cart"> 加到購物車</a>
-                    </h3>
-                </div>
+                <?php } ?>
                 <div class="clearfix"></div>
             </div>
         </div>
