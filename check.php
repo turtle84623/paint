@@ -22,10 +22,10 @@ if($_SESSION['one']==true){
     $dnumb=$row['商品代號']; 
     $dname=$row['商品名稱'];
     $dmuch=$row['單價'];
-    
+    $ddnumb=date("Ymdhis");
      $sql1 = "INSERT INTO `panit`.`我的商品` "
-                . "(`帳號`, `商品代號`, `商品名稱`,`單價`)"
-                . " VALUES ( '$name',"." $dnumb,"." '$dname',"."'$dmuch');";
+                . "(`帳號`, `商品代號`, `商品名稱`,`單價`,`商品編號`)"
+                . " VALUES ( '$name',"." $dnumb,"." '$dname',"."'$dmuch',"."'$ddnumb');";
    $result = mysql_query($sql1); 
 }
        ?>

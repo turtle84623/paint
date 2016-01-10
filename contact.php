@@ -89,16 +89,20 @@ include_once 'db.php';
                    
                    
 <?php 
+$i=1;$t=0;
  while($row = mysql_fetch_array($record)){//印出資料?>
        <h2>
-           <strong>商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong><input class="product_bt"
-       style="cursor: pointer;" onclick="location='check.php?sn=<?php echo $i; ?>';"
+           <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong><input class="product_bt"
+       style="cursor: pointer;" onclick="location='del.php?d=<?php echo $row["商品編號"] ?>';"
     value="刪除" type="button" />
-       </h2>             
-<?php    }
+       </h2> 
+<?php  $i++;$t+=$row["單價"];  }
 ?>
+                    
                 </div>
-               
+               <h2 class="intro-text text-center">
+                        <strong>總共:<?php echo  $t; ?>元</strong>
+                    </h2>
             </div>
         </div>  
 <?php }
