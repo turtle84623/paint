@@ -1,6 +1,8 @@
 <!DOCTYPE html><?php session_start(); ?>
 <html lang="en">
-
+<?php
+include_once 'db.php';
+?>
 <head>
 
     <meta charset="utf-8">
@@ -62,7 +64,7 @@
                         <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
-                        <a href="contact.php">購物車</a>
+                        <a href="contact.php">我的商品</a>
                     </li>
                 </ul>
             </div>
@@ -70,25 +72,51 @@
         </div>
         <!-- /.container -->
     </nav>
-
+<?php if ($_SESSION['one']==true){
+    $sql = "SELECT * FROM 我的商品 WHERE 帳號='".$_SESSION["two"]."'";    
+    $record=mysql_query($sql);
+   // $row = mysql_fetch_assoc($record);
+   
+    ?>
+          <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong><?php echo  $_SESSION['two']; ?>的商品</strong>
+                    </h2>
+                    <hr>
+                   
+                   
+<?php 
+ while($row = mysql_fetch_array($record)){//印出資料?>
+       <h2>
+                        <strong>商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong>
+       </h2>             
+<?php    }
+?>
+                </div>
+               
+            </div>
+        </div>  
+<?php }
+ else {
+?>
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong><?php echo  $_SESSION['two']; ?>的購物車</strong>
+                        <strong>請先登入</strong>
                     </h2>
                     <hr>
-
+                     
                 </div>
                
             </div>
         </div>
-
-        <div class="row">
-            
-       
-
+ <?php } ?>
+        <div class="row">                 
     </div>
     <!-- /.container -->
 
@@ -96,7 +124,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>版權所有</p>
                 </div>
             </div>
         </div>

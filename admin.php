@@ -61,7 +61,7 @@
                         <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
-                        <a href="contact.php">購物車</a>
+                        <a href="contact.php">我的商品</a>
                     </li>
                 </ul>
             </div>
@@ -119,7 +119,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p>Copyright &copy; Your Website 2014</p>
+                    <p>版權所有</p>
                 </div>
             </div>
         </div>

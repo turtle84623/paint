@@ -64,7 +64,7 @@ include_once 'db.php';
                         <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
-                        <a href="contact.php">購物車</a>
+                        <a href="contact.php">我的商品</a>
                     </li>
                 </ul>
             </div>
@@ -78,11 +78,10 @@ include_once 'db.php';
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
                     <h2 class="intro-text text-center">
                         <strong>帳號</strong>
                     </h2>
-                   
+                    <hr>                 
                 </div>
                 <form name="form1" method="post" action="login.php">
                   <p>帳號:
@@ -111,11 +110,10 @@ include_once 'db.php';
         <div class="row">
             <div class="box">
                 <div class="col-lg-12">
-                    <hr>
                     <h2 class="intro-text text-center">
                         <strong>帳號管理</strong>
                     </h2>
-                   
+                    <hr>                  
                 </div>
                 
                   <p>帳號:<?php echo $_SESSION['two'] ?>

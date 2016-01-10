@@ -64,7 +64,7 @@ include_once 'db.php';
                         <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
                     </li>
                     <li>
-                        <a href="contact.php">購物車</a>
+                        <a href="contact.php">我的商品</a>
                     </li>
                 </ul>
             </div>
@@ -119,7 +119,9 @@ include_once 'db.php';
                          <h3><?php echo $row["商品名稱"];?>                                                        			                       
                     </h3>
                          <span>價格:<?php echo $row["單價"]; ?>NT</span>
-                            <a href="checkout.php" class="btn-cart"> 加到購物車</a>
+<input class="product_bt"
+       style="cursor: pointer;" onclick="location='check.php?sn=<?php echo $i; ?>';"
+    value="訂購商品" type="button" />
                 </div>
                 <?php } ?>
                 <div class="clearfix"></div>
