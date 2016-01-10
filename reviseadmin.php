@@ -72,62 +72,42 @@ include_once 'db.php';
         </div>
         <!-- /.container -->
     </nav>
-    <?php if ($_SESSION['one']!=true){ ?>
-    <div class="container">
-
-        <div class="row">
+ 
+  <div class="row">
             <div class="box">
                 <div class="col-lg-12">
+                    <hr>
                     <h2 class="intro-text text-center">
-                        <strong>帳號</strong>
+                        <strong>帳號修改</strong>
                     </h2>
-                    <hr>                 
-                </div>
-                <form name="form1" method="post" action="login.php">
-                  <p>帳號:
-                    <label for="admin"></label>
-                  <input type="text" name="admin" id="admin">
-                  </p>
-                  <p>密碼:
-                    <label for="key"></label>
-                    <input type="password" name="key" id="key">
-                  </p>
-                  <p>
-                    <input type="submit" name="b1" id="b1" value="帳號登入">
-                    <a href="admin.php"><input type="button" name="r" id="r" value="新增帳號"></a>
-                  </p>
-                 
-                </form>
-                
-                <div>
-            </div>
-            
-        </div>
-    </div><?php }
- else {?>
-     <div class="container">
+                    <hr>
+                    <form action="" method="post" enctype="multipart/form-data" name="form2">
+                        <p>帳號:<?php echo $_SESSION['two'] ?>
+                      </p>
+                      <p>修改密碼:
+                        <label for="key2"></label>
+                        <input type="password" name="key2" id="key2">
+                      </p>
+                      <p>修改電話:
+                        <label for="numb"></label>
+                        <input name="numb" type="text" id="numb" maxlength="10">
+                      </p>
+                      <p>修改地址:
+                        <label for="add"></label>
+                      </p>
+                      <p>
+                        <textarea name="add" id="add"></textarea>
+                      </p>
+                      <p>
+                        <input type="submit" name="b2" id="b2" value="確定修改">
+                        <input type="reset" name="r2" id="r2" value="重新輸入">
+                      </p>
 
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <h2 class="intro-text text-center">
-                        <strong>帳號管理</strong>
-                    </h2>
-                    <hr>                  
+                    </form>
                 </div>
-                
-                  <p>帳號:<?php echo $_SESSION['two'] ?>
-                  </p>
-                  <p><a href="reviseadmin.php">帳號密碼修改</a></p>
-                  <p><a href="contact.php">我的商品</a></p>
-                  <a href="logout.php">登出<?php $_SESSION['three']=1; ?></a>
-                <div>
+               
             </div>
-            
         </div>
-    </div>
-<?php }
-    ?>
         
     <!-- /.container -->
 
@@ -150,3 +130,4 @@ include_once 'db.php';
 </body>
 
 </html>
+
