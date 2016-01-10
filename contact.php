@@ -91,7 +91,9 @@ include_once 'db.php';
 <?php 
  while($row = mysql_fetch_array($record)){//印出資料?>
        <h2>
-                        <strong>商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong>
+           <strong>商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong><input class="product_bt"
+       style="cursor: pointer;" onclick="location='check.php?sn=<?php echo $i; ?>';"
+    value="刪除" type="button" />
        </h2>             
 <?php    }
 ?>
