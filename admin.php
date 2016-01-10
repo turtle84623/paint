@@ -58,7 +58,7 @@
                         <a href="about.php">商品</a>
                     </li>
                     <li>
-                        <a href="blog.php">帳號<?php echo $_SESSION['two'] ?></a>
+                        <a href="blog.php">帳號</a>
                     </li>
                     <li>
                         <a href="contact.php">我的商品</a>

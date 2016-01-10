@@ -81,7 +81,7 @@ include_once 'db.php';
                         <strong>帳號修改</strong>
                     </h2>
                     <hr>
-                    <form action="" method="post" enctype="multipart/form-data" name="form2">
+                    <form action="readmin.php" method="post" enctype="multipart/form-data" name="form2">
                         <p>帳號:<?php echo $_SESSION['two'] ?>
                       </p>
                       <p>修改密碼:
