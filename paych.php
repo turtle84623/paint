@@ -37,6 +37,7 @@ if($_SESSION['one']==true){
                 . " VALUES ( '$ddnumb',"." '$d',"." '$d3',"."'$d2');";
    $result = mysql_query($sql2); 
    }
+   
 }
 
        ?>
@@ -47,3 +48,8 @@ if($_SESSION['one']==true){
         </SCRIPT>
     </body>
 </html>
+<?php
+ $del = $_SESSION['two'];
+ $sql3 = "DELETE FROM 我的商品 WHERE 帳號='$del'";
+ $result = mysql_query($sql3);
+?>

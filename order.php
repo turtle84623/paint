@@ -103,7 +103,9 @@ $i=1;
        </h2>
         
  <?php  $i++;  }?>
-                      <strong>總共:<?php echo  $t; ?>元</strong>
+                      <strong>總共:<?php echo  $t; ?>元</strong><input class="product_bt"
+       style="cursor: pointer;" onclick="location='delorder.php?d=<?php echo $n ?>';"
+    value="刪除" type="button" /><br>
 <?php }?>
                     
                 </div>
