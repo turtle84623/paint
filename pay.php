@@ -89,12 +89,12 @@ include_once 'db.php';
 $i=1;$t=0;
  while($row = mysql_fetch_array($record)){//印出資料?>
        <h2>
-           <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong>
+           <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"]; echo $row["商品編號"];?></strong>
        </h2> 
 <?php  $i++;$t+=$row["單價"];  }
 ?>
                     <strong>總共:<?php echo  $t; ?>元</strong>
-                    <form action="readmin.php" method="post" enctype="multipart/form-data" name="form2">
+                    <form action="paych.php" method="post" enctype="multipart/form-data" name="form2">
                       <p>確定電話:
                         <label for="numb"></label>
                         <input name="numb" type="text" id="numb" maxlength="10">
