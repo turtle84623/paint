@@ -120,6 +120,7 @@ include_once 'db.php';
                   </p>
                   <p><a href="reviseadmin.php">帳號密碼修改</a></p>
                   <p><a href="contact.php">我的商品</a></p>
+                  <p><a href="order.php">訂單明細</a></p>
                   <a href="logout.php">登出<?php $_SESSION['three']=1; ?></a>
                 <div>
             </div>

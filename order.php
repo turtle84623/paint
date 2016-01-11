@@ -78,39 +78,34 @@ include_once 'db.php';
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong>確定結帳</strong>
+                        <strong>訂單明細</strong>
                     </h2>
                     <hr>
                     <p>帳號:<?php echo $_SESSION['two'] ?>
                       </p>
-              <?php      $sql = "SELECT * FROM 我的商品 WHERE 帳號='".$_SESSION["two"]."'";    
+              <?php      $sql = "SELECT * FROM 訂單 WHERE 帳號='".$_SESSION["two"]."'";    
                          $record=mysql_query($sql);?>
                     <?php 
-$i=1;$t=0;
+$i=1;
  while($row = mysql_fetch_array($record)){//印出資料?>
-       <h2>
+        <?php $n=$row['訂單編號'];
+        $sql = "SELECT * FROM 訂單明細 WHERE 訂單編號='".$n."'";    
+        $record1=mysql_query($sql);
+        $t=0;
+        ?>
+                      <strong>訂單編號:<?php echo $n; ?>&nbsp&nbsp&nbsp寄送地址:<?php echo $row['寄送地址']; ?></strong>         
+            <?php
+        while($row = mysql_fetch_array($record1)){ 
+            $t+=$row["單價"];
+            ?>
+        <h2>
            <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"];?>元</strong>
-       </h2> 
-<?php  $i++;$t+=$row["單價"];  }
-?>
-                    <strong>總共:<?php echo  $t; ?>元</strong>
-                    <form action="paych.php" method="post" enctype="multipart/form-data" name="form2">
-                      <p>確定電話:
-                        <label for="numb"></label>
-                        <input name="numb" type="text" id="numb" maxlength="10">
-                      </p>
-                      <p>確定地址:
-                        <label for="add"></label>
-                      </p>
-                      <p>
-                        <textarea name="add" id="add"></textarea>
-                      </p>
-                      <p>
-                        <input type="submit" name="b2" id="b2" value="確定結帳">
-                        <input type="reset" name="r2" id="r2" value="重新輸入">
-                      </p>
-
-                    </form>
+       </h2>
+        
+ <?php  $i++;  }?>
+                      <strong>總共:<?php echo  $t; ?>元</strong>
+<?php }?>
+                    
                 </div>
                
             </div>

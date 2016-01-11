@@ -31,9 +31,10 @@ if($_SESSION['one']==true){
    while($row = mysql_fetch_array($record)){
   $d= $row["商品編號"];
    $d2=$row["單價"];
+   $d3=$row['商品名稱'];
    $sql2 = "INSERT INTO `panit`.`訂單明細` "
-                . "(`訂單編號`, `商品編號`, `單價`)"
-                . " VALUES ( '$ddnumb',"." '$d',"." '$d2');";
+                . "(`訂單編號`, `商品編號`, `商品名稱`, `單價`)"
+                . " VALUES ( '$ddnumb',"." '$d',"." '$d3',"."'$d2');";
    $result = mysql_query($sql2); 
    }
 }
@@ -42,7 +43,7 @@ if($_SESSION['one']==true){
         <SCRIPT language=javascript>
            
         alert  ("訂單成功");   
-        history.go(-1);
+        document.location.href="order.php";
         </SCRIPT>
     </body>
 </html>
