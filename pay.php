@@ -1,17 +1,17 @@
 <!DOCTYPE html><?php session_start(); ?>
 <html lang="en">
+
+<head>
 <?php
 include_once 'db.php';
 ?>
-<head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Contact - Business Casual - Start Bootstrap Theme</title>
+    <title>賀新油漆行</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -43,13 +43,13 @@ include_once 'db.php';
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
+                    <span class="sr-only"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
                 <!-- navbar-brand is hidden on larger screens, but visible when the menu is collapsed -->
-                <a class="navbar-brand" href="index.html">Business Casual</a>
+                <a class="navbar-brand" href="index.php">賀新 油漆行</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -72,60 +72,50 @@ include_once 'db.php';
         </div>
         <!-- /.container -->
     </nav>
-<?php if ($_SESSION['one']==true){
-    $sql = "SELECT * FROM 我的商品 WHERE 帳號='".$_SESSION["two"]."'";    
-    $record=mysql_query($sql);
-   // $row = mysql_fetch_assoc($record);
-   
-    ?>
-          <div class="row">
+ 
+  <div class="row">
             <div class="box">
                 <div class="col-lg-12">
                     <hr>
                     <h2 class="intro-text text-center">
-                        <strong><?php echo  $_SESSION['two']; ?>的商品</strong>
+                        <strong>確定結帳</strong>
                     </h2>
                     <hr>
-                   
-                   
-<?php 
+                    <p>帳號:<?php echo $_SESSION['two'] ?>
+                      </p>
+              <?php      $sql = "SELECT * FROM 我的商品 WHERE 帳號='".$_SESSION["two"]."'";    
+                         $record=mysql_query($sql);?>
+                    <?php 
 $i=1;$t=0;
  while($row = mysql_fetch_array($record)){//印出資料?>
        <h2>
-           <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong><input class="product_bt"
-       style="cursor: pointer;" onclick="location='del.php?d=<?php echo $row["商品編號"] ?>';"
-    value="刪除" type="button" />
+           <strong><?php echo $i; ?>.&nbsp商品名稱:<?php echo $row["商品名稱"] ?>&nbsp&nbsp商品價格:<?php echo $row["單價"] ?></strong>
        </h2> 
 <?php  $i++;$t+=$row["單價"];  }
 ?>
-                    
-                </div>
-               <h2 class="intro-text text-center">
-                        <strong>總共:<?php echo  $t; ?>元<input class="product_bt"
-       style="cursor: pointer;" onclick="location='pay.php';"
-    value="確定結帳" type="button" /></strong>
-                    </h2>
-            </div>
-        </div>  
-<?php }
- else {
-?>
-        <div class="row">
-            <div class="box">
-                <div class="col-lg-12">
-                    <hr>
-                    <h2 class="intro-text text-center">
-                        <strong>請先登入</strong>
-                    </h2>
-                    <hr>
-                     
+                    <strong>總共:<?php echo  $t; ?>元</strong>
+                    <form action="readmin.php" method="post" enctype="multipart/form-data" name="form2">
+                      <p>確定電話:
+                        <label for="numb"></label>
+                        <input name="numb" type="text" id="numb" maxlength="10">
+                      </p>
+                      <p>確定地址:
+                        <label for="add"></label>
+                      </p>
+                      <p>
+                        <textarea name="add" id="add"></textarea>
+                      </p>
+                      <p>
+                        <input type="submit" name="b2" id="b2" value="確定結帳">
+                        <input type="reset" name="r2" id="r2" value="重新輸入">
+                      </p>
+
+                    </form>
                 </div>
                
             </div>
         </div>
- <?php } ?>
-        <div class="row">                 
-    </div>
+        
     <!-- /.container -->
 
     <footer>
