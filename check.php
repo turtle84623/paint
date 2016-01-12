@@ -27,12 +27,23 @@ if($_SESSION['one']==true){
                 . "(`帳號`, `商品代號`, `商品名稱`,`單價`,`商品編號`)"
                 . " VALUES ( '$name',"." $dnumb,"." '$dname',"."'$dmuch',"."'$ddnumb');";
    $result = mysql_query($sql1); 
-}
-       ?>
+?>
         <SCRIPT language=javascript>
             
         alert  ("商品新增成功！請至我的商品查看");   
         history.go(-1);
         </SCRIPT>
+   <?php
+}
+ else {?>
+        <SCRIPT language=javascript>
+            
+        alert  ("請先登入帳號");   
+        history.go(-1);
+        </SCRIPT>
+    <?php
+}
+       ?>
+        
     </body>
 </html>
